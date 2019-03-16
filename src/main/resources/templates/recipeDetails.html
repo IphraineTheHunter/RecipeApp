@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe Home</title>
+</head>
+<body>
+    <h2 th:text="${recipe.recipeName}"></h2>
+    <div th:each="ingredientListing : ${recipe.ingredientListings}">
+        <span th:text="${ingredientListing.ingredient.ingredientName}"></span>
+        <span th:text="${ingredientListing.quantity}"></span>
+        <span th:text="${ingredientListing.units}"></span>
+        <span th:text="${ingredientListing.ingredient.category}"></span>
+    </div>
+
+    <a th:href="@{'/recipe/' + ${recipe.id} + '/ingredients/add'}">Add Ingredient to Recipe</a>
+</body>
+</html>
